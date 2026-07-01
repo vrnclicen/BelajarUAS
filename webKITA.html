@@ -1,0 +1,317 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>HEIRLOOM &amp; CO. Antique Brokers</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "on-surface-variant": "#424845",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#dbdad5",
+                        "surface-variant": "#e4e2dd",
+                        "inverse-primary": "#b1cdc1",
+                        "tertiary": "#231c12",
+                        "outline-variant": "#c2c8c4",
+                        "on-secondary": "#ffffff",
+                        "charcoal-text": "#222222",
+                        "primary": "#07221a",
+                        "surface-container-high": "#eae8e3",
+                        "surface-tint": "#4a645a",
+                        "tertiary-fixed-dim": "#d2c4b5",
+                        "on-secondary-fixed": "#2c1606",
+                        "surface-container-highest": "#e4e2dd",
+                        "on-tertiary-fixed-variant": "#4f4539",
+                        "on-primary-container": "#85a096",
+                        "surface-bright": "#fbf9f4",
+                        "on-surface": "#1b1c19",
+                        "on-tertiary-fixed": "#221a10",
+                        "inverse-surface": "#30312e",
+                        "tertiary-fixed": "#efe0d0",
+                        "primary-fixed": "#cce9dd",
+                        "on-secondary-fixed-variant": "#5d412c",
+                        "outline": "#727975",
+                        "secondary": "#775842",
+                        "tertiary-container": "#393126",
+                        "secondary-container": "#ffd5b9",
+                        "on-background": "#1b1c19",
+                        "secondary-fixed": "#ffdcc5",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#a5988a",
+                        "primary-fixed-dim": "#b1cdc1",
+                        "surface-container": "#f0eee9",
+                        "almond-surface": "#F2EDE4",
+                        "surface": "#fbf9f4",
+                        "inverse-on-surface": "#f2f1ec",
+                        "on-primary-fixed-variant": "#334c43",
+                        "sage-muted": "#6B7D72",
+                        "primary-container": "#1e372f",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#fbf9f4",
+                        "on-secondary-container": "#7a5a44",
+                        "secondary-fixed-dim": "#e7bea4",
+                        "surface-container-low": "#f5f3ee",
+                        "on-primary-fixed": "#062019",
+                        "error": "#ba1a1a",
+                        "on-tertiary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "margin-mobile": "20px",
+                        "gutter": "24px",
+                        "container-max": "1440px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Hanken Grotesk"],
+                        "headline-md": ["\"Source Serif 4\""],
+                        "display-lg-mobile": ["\"Source Serif 4\""],
+                        "label-md": ["Hanken Grotesk"],
+                        "display-lg": ["\"Source Serif 4\""],
+                        "headline-sm": ["\"Source Serif 4\""],
+                        "body-md": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "1.0", "fontWeight": "500" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "500" }],
+                        "display-lg-mobile": ["36px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.4", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+
+        /* 3D Perspective Scroll Animations */
+        .scroll-element {
+            opacity: 0;
+            will-change: transform, opacity;
+        }
+        .scroll-element.scrolled {
+            opacity: 1;
+        }
+        
+        .reveal-3d-up {
+            transform: perspective(1200px) translateY(80px) rotateX(-25deg);
+            transform-origin: top center;
+        }
+        .scroll-element.scrolled.reveal-3d-up {
+            transform: perspective(1200px) translateY(0) rotateX(0);
+            transition: opacity 1s ease-out, transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.15);
+        }
+        
+        .reveal-3d-right {
+            transform: perspective(1200px) translateX(80px) rotateY(25deg);
+            transform-origin: left center;
+        }
+        .scroll-element.scrolled.reveal-3d-right {
+            transform: perspective(1200px) translateX(0) rotateY(0);
+            transition: opacity 1s ease-out, transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.15);
+        }
+        
+        .reveal-3d-zoom {
+            transform: perspective(1200px) translateZ(-150px) scale(0.9) rotateX(15deg);
+            transform-origin: center center;
+        }
+        .scroll-element.scrolled.reveal-3d-zoom {
+            transform: perspective(1200px) translateZ(0) scale(1) rotateX(0);
+            transition: opacity 1.2s ease-out, transform 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-primary-container selection:text-on-primary">
+<!-- TopNavBar Component -->
+<nav class="bg-surface dark:bg-inverse-surface border-b border-outline-variant dark:border-outline flat no shadows docked full-width top-0 sticky z-50">
+<div class="flex justify-between items-center w-full px-margin-desktop py-unit max-w-container-max mx-auto">
+<!-- Left Side Actions -->
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed hover:opacity-80 transition-opacity duration-300">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+</div>
+<!-- Brand -->
+<div class="absolute left-1/2 -translate-x-1/2">
+<a class="font-display-lg text-display-lg text-primary dark:text-primary-fixed block md:hidden font-display-lg-mobile text-display-lg-mobile" href="/">
+                    HEIRLOOM &amp; CO.
+                </a>
+<a class="font-display-lg text-display-lg text-primary dark:text-primary-fixed hidden md:block" href="/">VERONICA</a>
+</div>
+<!-- Navigation Links (Center Desktop) -->
+<div class="hidden lg:flex items-center justify-center space-x-10 w-full pl-[200px]">
+
+
+
+
+</div>
+<!-- Trailing Icons -->
+<div class="flex items-center gap-6">
+<button class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed hover:opacity-80 transition-opacity duration-300">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+<button class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed hover:opacity-80 transition-opacity duration-300">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+</button>
+<button class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed hover:opacity-80 transition-opacity duration-300">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</button>
+</div>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative h-[870px] w-full flex items-center justify-center bg-tertiary">
+<div class="absolute inset-0 w-full h-full">
+<div class="bg-cover bg-center w-full h-full opacity-60" data-alt="A highly detailed photograph of a beautifully curated high-end antique interior space. The room features a magnificent mid-century modern wooden credenza, an ornate vintage crystal chandelier, and a plush sage green velvet armchair. The lighting is dramatic yet soft, coming from large tall windows, creating a moody, timeless, and expensive aesthetic. The color palette is earthy with deep greens, rich warm browns, and pristine whites, embodying a modern corporate design studio look." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD0EA281vhUh1QRi6aRSUvKsfCdn7qkmdhvFVMl8aV_NNhVbBm85BD1QeSee6CtMBTvTqkWAL_V6e0Xlp8tKHyMeziXUJNH1iWpVp79AbaZVXfBqh9od40CQN-pS6aDSlf_ln2V8AkgigFqEOFja_C74bm5mmQ7CGtLjwIERle1e1BtNqVY9MrJnUywBbV4D89rThTfKE36lGSU5AUspff_Sv9I9vlTmK6p416s8f5WaW7l_VbF8cr2l7xcxm8zO9IsrQG89RzucJvI')"></div>
+</div>
+<div class="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center scroll-element reveal-3d-up">
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-on-primary mb-6 max-w-3xl mx-auto drop-shadow-md">
+                    Timeless Artistry, Curated for Modern Heritage
+                </h1>
+<p class="font-body-lg text-body-lg text-surface-variant mb-10 max-w-2xl mx-auto">
+                    Discover our meticulously sourced collection of extraordinary antique furniture and decorative arts, tailored for discerning interior designers and collectors.
+                </p>
+<a class="inline-block bg-primary-container text-on-primary font-label-md text-label-md uppercase px-8 py-4 tracking-widest hover:bg-primary transition-colors duration-300 border border-transparent" href="#catalog">
+                    Explore the Catalog
+                </a>
+</div>
+</section>
+<!-- Services Section -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop bg-almond-surface">
+<div class="max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-16">
+<div class="flex flex-col items-start border-l border-outline-variant pl-8 scroll-element reveal-3d-up">
+<span class="material-symbols-outlined text-primary-container text-4xl mb-6" data-icon="handshake" data-weight="fill" style="font-variation-settings: 'FILL' 1;">handshake</span>
+<h2 class="font-headline-md text-headline-md text-primary mb-4">Bespoke Brokering</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+                            We act as discreet intermediaries for private sales and acquisitions, leveraging our global network to source specific, rare pieces for high-end residential and commercial projects.
+                        </p>
+</div>
+<div class="flex flex-col items-start border-l border-outline-variant pl-8 scroll-element reveal-3d-up" style="transition-delay: 0.2s;">
+<span class="material-symbols-outlined text-primary-container text-4xl mb-6" data-icon="verified" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span>
+<h2 class="font-headline-md text-headline-md text-primary mb-4">Global Authentication</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+                            Every piece in our catalog undergoes rigorous provenance verification by leading experts, ensuring historical accuracy and investment-grade authenticity.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Categories Grid -->
+<section class="py-32 px-margin-mobile md:px-margin-desktop" id="catalog">
+<div class="max-w-container-max mx-auto">
+<div class="flex justify-between items-end mb-16 border-b border-outline-variant pb-6">
+<h2 class="font-display-lg text-display-lg text-primary">Curated Categories</h2>
+<a class="font-label-md text-label-md text-primary uppercase tracking-widest border-b border-primary pb-1 hover:text-secondary transition-colors" href="#">View All</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Seating (Large featured) -->
+<a class="group md:col-span-8 relative h-[600px] overflow-hidden bg-surface-container-high block scroll-element reveal-3d-zoom" href="#">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A meticulously styled editorial photograph focusing on a rare antique seating arrangement. A beautifully carved Louis XV style walnut armchair with faded sage green silk upholstery sits prominently. The lighting is soft and directional, casting subtle shadows that highlight the craftsmanship of the wood carving. The background is a clean, minimalist Almond-colored wall, emphasizing the high-end B2B catalog aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuASAEb2aBqMRmwyj8msacLzv27s1OoZAQ8k9UNdwfW5lNrXv2hJes5jAQ8zumH0VySx_rHqQv6pNIPAlHzYq0GYYviF5gYBvvGXsXcUZL3reBasjrGK4FmjHFWeoP5-Ok9VCFeBsDfZ-ZiQWjYt10yGdbidfZkQRgTHjQzn0Tv7TWrZiuGkbCE3ZkN-xer0Vh84E6A25_i5K7d7tvQRiJ5_PbjjczKz51QW9PNBFio1zx0KeRDbFAc4INPqMeBdGIGOPwD2WplgLM5u">
+<div class="absolute inset-0 bg-gradient-to-t from-tertiary/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8 w-full">
+<h3 class="font-headline-md text-headline-md text-on-primary mb-2">Seating</h3>
+<p class="font-label-sm text-label-sm text-surface-variant uppercase tracking-widest">142 Curated Pieces</p>
+</div>
+</a>
+<div class="md:col-span-4 flex flex-col gap-gutter">
+<!-- Tables -->
+<a class="group relative h-[288px] overflow-hidden bg-surface-container-high block scroll-element reveal-3d-zoom" style="transition-delay: 0.1s;" href="#">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A detail shot of an exquisite antique table. The focus is on the rich, polished patina of a mahogany dining table's surface and intricately turned legs. A simple, modern ceramic vase sits on top to provide scale and contrast. The setting is minimal and well-lit with soft, natural light, reflecting a sophisticated, established brand style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmq2aPjlXRT2f-ND2hcdvbEfoyq8OWKNfylzvklDd13E-4mF7924R2zxE3cvQ-aYMaDphQpFp3kyqLKeJwJl-zX7jH5oRjZ5KEtSX4-ehsNtLRHY06flTn_wXboXSyGBqa98WOg0aRicRgqXJNrZuykpaT3bxUSN08ZhVW-voKlwVEIGfXL1wEIVQKluVcdXbEYLLo98-kRyNakdYzVc28re_n8pcq0Z_-ARE0GLsJHOHxGjdvYVq3MIty7DmQFQdf_QQl0mx0deug">
+<div class="absolute inset-0 bg-gradient-to-t from-tertiary/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6 w-full">
+<h3 class="font-headline-sm text-headline-sm text-on-primary mb-1">Tables</h3>
+<p class="font-label-sm text-label-sm text-surface-variant uppercase tracking-widest">86 Curated Pieces</p>
+</div>
+</a>
+<!-- Lighting -->
+<a class="group relative h-[288px] overflow-hidden bg-surface-container-high block scroll-element reveal-3d-zoom" style="transition-delay: 0.2s;" href="#">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A striking photograph of antique lighting fixtures. An ornate, gilded bronze candelabra is showcased against a stark, minimalist Almond background. The piece is subtly illuminated to show off the intricate metalwork without overwhelming the frame. The composition is highly curated and editorial, perfect for a luxury antique broker." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCm141lpm4G18V69IE9nVUOZlxcjbUukMVYkZVihIBCKJm1ycJR5m2iC9nniyKne1zE4NVT15Ax99qfLLVIf8lCuT7PQnl9CZgGOxP9FjQfbUP0jD68OCms-nEWAXxz3QGU-jv1fvpW7JEZXUsXZbXm2Lwmh6LtC9wiL6tHbjB8kiRKI4v6J6QeHIn9tZAZ0xP_wscOe7xXEvGRwNA0ykw3hsvnSV8L6lT4hEytXU959bTOhuiNrJkYn4ulRgxxWpA9v7vwc2EdUGn">
+<div class="absolute inset-0 bg-gradient-to-t from-tertiary/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6 w-full">
+<h3 class="font-headline-sm text-headline-sm text-on-primary mb-1">Lighting</h3>
+<p class="font-label-sm text-label-sm text-surface-variant uppercase tracking-widest">54 Curated Pieces</p>
+</div>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- About/Narrative Section -->
+<section class="py-32 px-margin-mobile md:px-margin-desktop bg-surface-container-low">
+<div class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+<div class="relative h-[700px] w-full bg-surface-container-high scroll-element reveal-3d-zoom">
+<img class="absolute inset-0 w-full h-full object-cover grayscale" data-alt="A black and white or subtly desaturated photograph of an artisan's workshop or detail of wood grain being restored. The image focuses on the texture of aged oak and a master restorer's hands carefully working on a joint. The lighting is moody and dramatic, conveying a deep sense of history, heritage, and uncompromising craftsmanship." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcH91saXsDTbS_qRJ_5KWJ33eLUmx6CLaMHDE-nXDOff_e-sShfW7YpVT3lB1SokgG4gWorYZ7lC7RpfYDjEL-oyUCcJELpICTM4viCgPXBrT5r1Yy42NtFxGkDoiPeYQ5wA4uk8R8u8MaePETsiTLOqCYhVqqP0Cq8oOwvW3RdJEB-VRv9tdR5xzfdowtYDsIm-DVYt0xhBgBfHQxFrCeHIspCpLlrFhKAkcF--cdLDqXYRz7BFK6ZOrRkKRaBZfc6g4l8rGJztS7">
+</div>
+<div class="flex flex-col justify-center scroll-element reveal-3d-right">
+<p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mb-6">Our Heritage</p>
+<h2 class="font-display-lg text-display-lg text-primary mb-8 leading-tight">Preserving History Through Exceptional Craft</h2>
+<div class="space-y-6 text-on-surface-variant font-body-lg text-body-lg max-w-xl">
+<p class="">
+                            At HEIRLOOM &amp; CO., we view antiques not merely as furniture, but as tangible artifacts of human history. Each piece in our collection has been selected for its exceptional craftsmanship, unique provenance, and structural integrity.
+                        </p>
+<p class="">
+                            We partner exclusively with vetted estates, private collections, and renowned auctions globally. Our restoration philosophy emphasizes preservation over perfection, maintaining the authentic patina that only centuries of careful use can provide.
+                        </p>
+</div>
+<div class="mt-12">
+<a class="inline-flex items-center gap-2 border border-primary-container text-primary-container font-label-md text-label-md uppercase px-8 py-3 tracking-widest hover:bg-primary-container hover:text-on-primary transition-colors duration-300" href="#">
+                            Read Our Story
+                            <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Component -->
+<footer class="bg-almond-surface dark:bg-surface-container-highest border-t border-outline-variant dark:border-outline flat no shadows full-width bottom">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter px-margin-desktop py-12 max-w-container-max mx-auto">
+<!-- Brand & Copyright -->
+<div class="flex flex-col justify-between h-full space-y-8">
+<a class="font-headline-sm text-headline-sm text-primary dark:text-primary-fixed" href="/">
+                    HEIRLOOM &amp; CO.
+                </a>
+<p class="font-body-md text-body-md text-secondary dark:text-on-secondary-container">
+                    © 2024 HEIRLOOM &amp; CO. ALL RIGHTS RESERVED.
+                </p>
+</div>
+<!-- Links -->
+<div class="flex flex-wrap md:justify-end gap-x-8 gap-y-4 items-end">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Trade Program</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Shipping &amp; Handling</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Authentication</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Contact Support</a>
+</div>
+</div>
+</footer>
+<script src="script.js"></script>
+</body></html>
