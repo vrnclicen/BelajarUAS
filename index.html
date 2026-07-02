@@ -306,21 +306,23 @@
             <div class="flashcard-container" id="flashcard-ui">
                 <div class="progress" id="quiz-progress">Soal 1 dari 10</div>
                 <div class="live-score" style="margin-bottom: 20px; font-weight: bold; color: var(--text-main); display: flex; gap: 20px;">
-                    <div>Hafal: <span id="live-score-benar" style="color: #10b981;">0</span></div>
-                    <div>Lupa: <span id="live-score-salah" style="color: #ef4444;">0</span></div>
+                    <div>Benar: <span id="live-score-benar" style="color: #10b981;">0</span></div>
+                    <div>Salah: <span id="live-score-salah" style="color: #ef4444;">0</span></div>
                 </div>
                 <div class="flashcard">
                     <div class="q-text" id="quiz-q">Pertanyaan muncul di sini?</div>
                     <div class="a-text" id="quiz-a">Jawaban akan muncul di sini.</div>
                 </div>
                 
-                <div class="controls" id="controls-reveal">
-                    <button class="btn btn-primary" onclick="revealAnswer()">Buka Jawaban 👀</button>
+                <div class="controls" id="controls-options" style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 15px;">
+                    <button class="btn btn-option" style="flex: 1 1 40%;" onclick="checkAnswer('A')">A</button>
+                    <button class="btn btn-option" style="flex: 1 1 40%;" onclick="checkAnswer('B')">B</button>
+                    <button class="btn btn-option" style="flex: 1 1 40%;" onclick="checkAnswer('C')">C</button>
+                    <button class="btn btn-option" style="flex: 1 1 40%;" onclick="checkAnswer('D')">D</button>
                 </div>
                 
-                <div class="controls hidden" id="controls-judge">
-                    <button class="btn btn-danger" onclick="nextQuestion(false)">Lupa ❌</button>
-                    <button class="btn btn-success" onclick="nextQuestion(true)">Hafal ✅</button>
+                <div class="controls hidden" id="controls-next">
+                    <button class="btn btn-primary" onclick="nextQuestion()">Selanjutnya ➡️</button>
                 </div>
             </div>
 
@@ -989,9 +991,9 @@
         let score = 0;
         let forgotScore = 0;
         let currentQuizData = [];
+        let isAnswered = false;
 
         function startQuiz() {
-            // Copy array & Acak urutan soal biar gak gampang ditebak
             currentQuizData = [...soalData].sort(() => Math.random() - 0.5);
             currentIndex = 0;
             score = 0;
@@ -1007,30 +1009,65 @@
         }
 
         function showQuestion() {
+            isAnswered = false;
             document.getElementById('quiz-progress').innerText = `Soal ${currentIndex + 1} dari ${currentQuizData.length}`;
             const cleanQ = currentQuizData[currentIndex].q.replace(/^\d+\.\s*/, '');
-            document.getElementById('quiz-q').innerText = `${currentIndex + 1}. ${cleanQ}`;
-            document.getElementById('quiz-a').innerText = currentQuizData[currentIndex].a;
+            document.getElementById('quiz-q').innerHTML = `${currentIndex + 1}. ${cleanQ}`;
+            document.getElementById('quiz-a').innerHTML = currentQuizData[currentIndex].a;
             
             document.getElementById('quiz-a').classList.remove('visible');
-            document.getElementById('controls-reveal').classList.remove('hidden');
-            document.getElementById('controls-judge').classList.add('hidden');
+            document.getElementById('controls-options').classList.remove('hidden');
+            document.getElementById('controls-next').classList.add('hidden');
+            
+            const buttons = document.querySelectorAll('.btn-option');
+            buttons.forEach(btn => {
+                btn.className = 'btn btn-option';
+                btn.disabled = false;
+            });
         }
 
-        function revealAnswer() {
-            document.getElementById('quiz-a').classList.add('visible');
-            document.getElementById('controls-reveal').classList.add('hidden');
-            document.getElementById('controls-judge').classList.remove('hidden');
-        }
-
-        function nextQuestion(isCorrect) {
-            if (isCorrect) {
+        function checkAnswer(selectedLetter) {
+            if(isAnswered) return;
+            isAnswered = true;
+            
+            const qData = currentQuizData[currentIndex];
+            let correctLetter = 'A';
+            const match = qData.a.match(/^([A-D])\./i);
+            if (match) {
+                correctLetter = match[1].toUpperCase();
+            } else {
+                if (qData.a.trim().startsWith('A')) correctLetter = 'A';
+                else if (qData.a.trim().startsWith('B')) correctLetter = 'B';
+                else if (qData.a.trim().startsWith('C')) correctLetter = 'C';
+                else if (qData.a.trim().startsWith('D')) correctLetter = 'D';
+            }
+            
+            const buttons = document.querySelectorAll('.btn-option');
+            buttons.forEach(btn => {
+                btn.disabled = true;
+                if (btn.innerText === correctLetter) {
+                    btn.classList.add('btn-success');
+                }
+            });
+            
+            if (selectedLetter === correctLetter) {
                 score++;
                 document.getElementById('live-score-benar').innerText = score;
             } else {
                 forgotScore++;
                 document.getElementById('live-score-salah').innerText = forgotScore;
+                buttons.forEach(btn => {
+                    if (btn.innerText === selectedLetter) {
+                        btn.classList.add('btn-danger');
+                    }
+                });
             }
+            
+            document.getElementById('quiz-a').classList.add('visible');
+            document.getElementById('controls-next').classList.remove('hidden');
+        }
+
+        function nextQuestion() {
             currentIndex++;
 
             if (currentIndex < currentQuizData.length) {
