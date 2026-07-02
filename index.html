@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aplikasi Belajar UAS</title>
+    <title>Aplikasi Belajar UAS Matematika</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -265,6 +265,13 @@
         <header>
             <h1>Persiapan UAS</h1>
             <p class="subtitle">Pelajari materinya, lalu uji kemampuanmu!</p>
+            <div style="margin-top: 15px;">
+                <label for="subject-select" style="font-weight: 600; color: var(--text-main);">Mata Kuliah: </label>
+                <select id="subject-select" onchange="changeSubject()" style="padding: 8px 12px; border-radius: 8px; border: 1px solid var(--primary); background: rgba(255, 255, 255, 0.7); color: var(--text-main); font-weight: 600; font-family: 'Outfit', sans-serif; cursor: pointer;">
+                    <option value="PKN">Pendidikan Kewarganegaraan (PKN)</option>
+                    <option value="MTK">Matematika (MTK)</option>
+                </select>
+            </div>
         </header>
 
         <div class="mode-toggle">
@@ -312,8 +319,8 @@
     </div>
 
     <script>
-        // Data Soal (Kamu bisa mengganti dan menambah soal di sini sesuai mata kuliahmu!)
-        const soalData = [
+        const allSoalData = {
+            "PKN": [
     {
         "q": "1. Budi lahir di negara X yang menganut asas ius soli, namun kedua orang tuanya adalah warga negara Indonesia yang menganut asas ius sanguinis. Berdasarkan kondisi tersebut, Budi berpotensi mengalami status...\n\nA. apatride\nB. bipatride\nC. warga negara tunggal\nD. penduduk tanpa kewarganegaraan",
         "a": "B. bipatride"
@@ -538,7 +545,32 @@
         "q": "56. Sekelompok atau beberapa kelompok manusia yang tinggal di suatu wilayah tertentu dan mengakui adanya pemerintahan yang mengatur tata tertib dan keamanan kelompok-kelompok tersebut disebut...\n\n\nA. Kewarganegaraan\nB. Negara\nC. Bangsa\nD. Kesatuan",
         "a": "B. Negara"
     }
-];
+            ],
+            "MTK": [
+                {
+                    "q": "Data soal MTK belum ditambahkan. Silakan tambahkan soal MTK.",
+                    "a": "Siap!"
+                }
+            ]
+        };
+
+        let soalData = allSoalData["PKN"];
+
+        function changeSubject() {
+            const subject = document.getElementById('subject-select').value;
+            soalData = allSoalData[subject];
+            
+            // Hide result UI if visible
+            document.getElementById('result-ui').classList.add('hidden');
+            
+            // Re-render hafalan
+            renderHafalan();
+            
+            // Restart quiz if in Ujian mode
+            if (document.getElementById('btn-ujian').classList.contains('active')) {
+                startQuiz();
+            }
+        }
 
         // --- Init Hafalan ---
         function renderHafalan() {
