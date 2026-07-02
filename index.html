@@ -544,7 +544,8 @@
         function renderHafalan() {
             const list = document.getElementById('hafalan-list');
             list.innerHTML = '';
-            soalData.forEach((item, index) => {
+            const shuffledData = [...soalData].sort(() => Math.random() - 0.5);
+            shuffledData.forEach((item, index) => {
                 list.innerHTML += `
                     <div class="qna-card">
                         <div class="question">${item.q}</div>
