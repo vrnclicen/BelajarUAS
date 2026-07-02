@@ -630,10 +630,20 @@
 ]
         };
 
-        let soalData = allSoalData["PKN"];
+        let savedSubject = localStorage.getItem('selectedSubject') || "PKN";
+        let soalData = allSoalData[savedSubject];
+
+        // Set the dropdown to match the saved subject when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            const selectEl = document.getElementById('subject-select');
+            if (selectEl) {
+                selectEl.value = savedSubject;
+            }
+        });
 
         function changeSubject() {
             const subject = document.getElementById('subject-select').value;
+            localStorage.setItem('selectedSubject', subject);
             soalData = allSoalData[subject];
             
             // Hide result UI if visible
