@@ -546,9 +546,10 @@
             list.innerHTML = '';
             const shuffledData = [...soalData].sort(() => Math.random() - 0.5);
             shuffledData.forEach((item, index) => {
+                const cleanQ = item.q.replace(/^\d+\.\s*/, '');
                 list.innerHTML += `
                     <div class="qna-card">
-                        <div class="question">${item.q}</div>
+                        <div class="question">${index + 1}. ${cleanQ}</div>
                         <div class="answer">${item.a}</div>
                     </div>
                 `;
@@ -594,7 +595,8 @@
 
         function showQuestion() {
             document.getElementById('quiz-progress').innerText = `Soal ${currentIndex + 1} dari ${currentQuizData.length}`;
-            document.getElementById('quiz-q').innerText = currentQuizData[currentIndex].q;
+            const cleanQ = currentQuizData[currentIndex].q.replace(/^\d+\.\s*/, '');
+            document.getElementById('quiz-q').innerText = `${currentIndex + 1}. ${cleanQ}`;
             document.getElementById('quiz-a').innerText = currentQuizData[currentIndex].a;
             
             document.getElementById('quiz-a').classList.remove('visible');
